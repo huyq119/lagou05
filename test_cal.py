@@ -8,10 +8,16 @@ class TestCalc:
         self.calc = Calculator()
 
     #  使用参数化
-    @pytest.mark.parametrize("a,b,expect",[(3,5,8),(-1,-2,-3),(10000,10000,20000)])
+    @pytest.mark.parametrize("a,b,expect", [(3, 5, 8), (-1, -2, -3), (10000, 10000, 20000)])
     # 测试add函数
-    def test_add(self,a,b,expect):
+    def test_add(self, a, b, expect):
         # 调用add函数,返回的结果保存在result里面
-        result = self.calc.add(a,b)
+        result = self.calc.add(a, b)
+        # 判断result结果是否等于期望的值
+        assert result == expect
+
+    def test_sub(self, a, b, expect):
+        # 调用sub函数，返回的记过保存在result里面
+        result = self.calc.sub(a, b)
         # 判断result结果是否等于期望的值
         assert result == expect
